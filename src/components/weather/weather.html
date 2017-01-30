@@ -1,0 +1,45 @@
+<!--
+  Generated template for the Weather component.
+
+  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+
+<ion-grid *ngIf="currentCondtions">
+    <ion-row>
+    <ion-col width-100>
+      <ion-list>
+        <ion-item>
+          <ion-label fixed>City</ion-label>
+          <ion-input (keyup)="getQuery()" [(ngModel)]="searchText" type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+    </ion-row>
+  <ion-row >
+    <ion-col width-50 offset-25>
+      <h2 class="location"> {{currentCondtions.display_location.full}} </h2>
+      <div class="icon">
+        <img src="{{currentCondtions.icon_url}}">
+      </div>
+      <h3 class="desc">{{currentCondtions.weather}}</h3>
+      <h1 class="temp">{{currentCondtions.temp_c}}&deg;C</h1>
+    </ion-col>
+
+  </ion-row>
+  <ion-row>
+    <ion-col width-100>
+      <ion-list>
+        <ion-item>  <strong>Temp: </strong> {{currentCondtions.temperature_string}}        </ion-item>
+        <ion-item>  <strong>Relative Humitity: </strong> {{currentCondtions.relative_humidity}}        </ion-item>
+        <ion-item>  <strong>Dewpoint: </strong> {{currentCondtions.dewpoint_string}}        </ion-item>
+        <ion-item>  <strong>Visibility: </strong> {{currentCondtions.visibility_km}} KM       </ion-item>
+        <ion-item>  <strong>Wind: </strong> {{currentCondtions.wind_kph}} KPH        </ion-item>
+        <ion-item>  <strong>Wind Direction: </strong> {{currentCondtions.wind_dir}}        </ion-item>
+        <ion-item>  <strong>Heat Index: </strong> {{currentCondtions.heat_index_string}}        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+{{results | json}}
